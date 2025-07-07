@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="loginForm" class="form-container active">
+            <h2>Login</h2>
+            <input type="text" id="loginUsername" placeholder="Username">
+            <input type="password" id="loginPassword" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <button onclick="showSignup()">Go to Signup</button>
+        </div>
+
+        <div id="signupForm" class="form-container">
+            <h2>Signup</h2>
+            <input type="text" id="signupUsername" placeholder="Username">
+            <input type="password" id="signupPassword" placeholder="Password">
+            <select id="signupRole">
+                <option value="normal">Normal</option>
+                <option value="admin">Admin</option>
+            </select>
+            <button onclick="signup()">Signup</button>
+            <button onclick="showLogin()">Back to Login</button>
+        </div>
+
+        <div id="mainApp" class="form-container">
+            <h2>Welcome, <span id="currentUser"></span> (<span id="userRole"></span>)</h2>
+            <button onclick="logout()">Logout</button>
+            <button onclick="showChat()">Chat</button>
+            <button onclick="showHolidayForm()">Request Holiday</button>
+            <button onclick="showMessages()">Private Messages</button>
+            <div id="adminPanel" class="admin-panel" style="display: none;">
+                <h3>Admin: Holiday Requests</h3>
+                <div id="holidayRequests"></div>
+            </div>
+        </div>
+
+        <div id="chatContainer" class="chat-container">
+            <h2>Company Chat</h2>
+            <div class="chat-messages" id="chatMessages"></div>
+            <input type="text" id="chatInput" placeholder="Type a message...">
+            <button onclick="sendChatMessage()">Send</button>
+            <button onclick="showMain()">Back to Dashboard</button>
+        </div>
+
+        <div id="holidayContainer" class="holiday-container">
+            <h2>Request Holiday</h2>
+            <input type="date" id="holidayDate">
+            <textarea id="holidayReason" placeholder="Reason for holiday"></textarea>
+            <button onclick="submitHolidayRequest()">Submit</button>
+            <button onclick="showMain()">Back to Dashboard</button>
+        </div>
+
+        <div id="messagesContainer" class="messages-container">
+            <h2>Private Messages</h2>
+            <select id="messageRecipient">
+                <option value="">Select Recipient</option>
+            </select>
+            <textarea id="privateMessage" placeholder="Type your message..."></textarea>
+            <button onclick="sendPrivateMessage()">Send</button>
+            <h3>Your Messages</h3>
+            <div id="privateMessages"></div>
+            <button onclick="showMain()">Back to Dashboard</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
